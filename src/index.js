@@ -10,7 +10,6 @@ require('@app/redis')
 require('@app/i18next')
 
 const authentication = require('@app/middleware/authentication')
-
 const graphql = require('@app/graphql')
 
 const app = express()
