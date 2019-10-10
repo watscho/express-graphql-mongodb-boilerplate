@@ -1,0 +1,63 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "boilerplate for any project",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "start:local": "nodemon ./src/index.js",
+    "agenda": "node ./worker",
+    "agenda:local": "nodemon ./worker",
+    "lint": "eslint --debug src/ worker/",
+    "lint:write": "eslint --debug src/ worker/ --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:write",
+      "git add"
+    ]
+  },
+  "_moduleAliases": {
+    "@app": "./src",
+    "@cron": "./worker"
+  },
+  "author": "Watscho Aiwasov",
+  "license": "ISC",
+  "dependencies": {
+    "agenda": "^2.1.0",
+    "apollo-upload-server": "^7.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "crypto-random-string": "^3.0.1",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.6",
+    "graphql-compose": "^7.3.0",
+    "graphql-compose-mongoose": "^7.1.4",
+    "i18next": "^17.0.16",
+    "i18next-express-middleware": "^1.8.2",
+    "ioredis": "^4.14.1",
+    "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.1",
+    "nodemailer": "^6.3.0",
+    "validator": "^11.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.2"
+  }
+}
