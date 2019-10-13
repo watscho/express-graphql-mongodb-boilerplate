@@ -3,8 +3,9 @@ const bodyParser = require('body-parser')
 const { apolloUploadExpress } = require('apollo-upload-server')
 const i18next = require('i18next')
 const i18nextMiddleware = require('i18next-express-middleware')
-require('dotenv').config()
+
 require('module-alias/register')
+require('dotenv').config()
 
 require('@app/redis')
 require('@app/i18next')

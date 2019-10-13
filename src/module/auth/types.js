@@ -7,7 +7,8 @@ const UserTC = composeWithMongoose(UserModel).removeField('password')
 
 const userAccountTC = UserTC.getFieldTC('account')
 
-userAccountTC.getFieldTC('verification').removeField(['token', 'expiredIn'])
+userAccountTC.getFieldTC('verification').removeField(['token', 'expireIn'])
+
 userAccountTC.removeField('resetPassword')
 
 schemaComposer.createObjectTC({
