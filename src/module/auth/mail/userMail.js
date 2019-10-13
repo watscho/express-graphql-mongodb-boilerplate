@@ -3,20 +3,19 @@ const { transporter } = require('@app/nodemailer')
 class UserMail {
   resetPassword (email, token) {
     return transporter.sendMail({
-      from: '"Reset Password" <verify@ufo.io>',
+      from: '"Reset Password" <no-replay@example.com>',
       to: email,
-      subject: 'Reset Password Request',
-      html: `${token}`
+      subject: 'Reset Password',
+      html: token
     })
   }
 
   verifyRequest (email, token) {
     return transporter.sendMail({
-      from: '"Verifications" <verify@ufo.io>',
+      from: '"Verification" <no-replay@example.com>',
       to: email,
-      subject: 'Verification Request',
-      text: 'Hello world?',
-      html: `${token}`
+      subject: 'Verification',
+      html: token
     })
   }
 }
