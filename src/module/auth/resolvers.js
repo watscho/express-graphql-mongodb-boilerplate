@@ -27,10 +27,14 @@ const signIn = {
   resolve: async ({ args: { email, password } }) => {
     try {
       const user = await UserModel.emailExist(email)
-      if (!user) return Promise.reject(new Error('User not found.'))
+      if (!user) {
+        return Promise.reject(new Error('User not found.'))
+      }
 
       const comparePassword = await user.comparePassword(password)
-      if (!comparePassword) return Promise.reject(new Error('Password is incorrect.'))
+      if (!comparePassword) {
+        return Promise.reject(new Error('Password is incorrect.'))
+      }
 
       const accessToken = jwt.sign(
         { userId: user._id },
@@ -55,7 +59,9 @@ const signUp = {
   resolve: async ({ args: { email, password }, context: { i18n } }) => {
     try {
       let user = await UserModel.emailExist(email)
-      if (user) return Promise.reject(new Error('Email has already been taken.'))
+      if (user) {
+        return Promise.reject(new Error('Email has already been taken.'))
+      }
 
       const hash = bcrypt.hashSync(password, 10)
 
@@ -121,7 +127,9 @@ const verify = {
       const user = await UserModel.findOne({
         'account.verification.token': token
       })
-      if (!user) { return Promise.reject(new Error('Access Token is not valid or has expired.')) }
+      if (!user) {
+        return Promise.reject(new Error('Access Token is not valid or has expired.'))
+      }
 
       user.account.verification = {
         verified: true,
@@ -151,7 +159,9 @@ const resetPassword = {
   resolve: async ({ args: { email } }) => {
     try {
       const user = await UserModel.findOne({ email })
-      if (!user) return Promise.reject(new Error('User not found.'))
+      if (!user) {
+        return Promise.reject(new Error('User not found.'))
+      }
 
       const token = crypto({ length: 48, type: 'url-safe' })
       const expireIn = moment().add(7, 'days')
@@ -181,7 +191,9 @@ const newPassword = {
       const user = await UserModel.findOne({
         'account.resetPassword.token': token
       })
-      if (!user) { return Promise.reject(new Error('Access Token is not valid or has expired.')) }
+      if (!user) {
+        return Promise.reject(new Error('Access Token is not valid or has expired.'))
+      }
 
       const hash = bcrypt.hashSync(newPassword, 10)
 
@@ -216,7 +228,9 @@ const changePassword = {
   }) => {
     try {
       const comparePassword = await user.comparePassword(currentPassword)
-      if (!comparePassword) { return Promise.reject(new Error('Current password is incorrect.')) }
+      if (!comparePassword) {
+        return Promise.reject(new Error('Current password is incorrect.'))
+      }
 
       const hash = bcrypt.hashSync(newPassword, 10)
 
@@ -239,7 +253,9 @@ const updateUser = {
     try {
       if (user.email !== args.email) {
         const userExist = await UserModel.findOne({ email: args.email })
-        if (userExist) return Promise.reject(new Error('Email has already been taken.'))
+        if (userExist) {
+          return Promise.reject(new Error('Email has already been taken.'))
+        }
       }
 
       for (const arg in args) user[arg] = args[arg]

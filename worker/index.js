@@ -1,6 +1,7 @@
 const Agenda = require('agenda')
-require('dotenv').config()
+
 require('module-alias/register')
+require('dotenv').config()
 
 const jobs = require('@cron/jobs')
 
