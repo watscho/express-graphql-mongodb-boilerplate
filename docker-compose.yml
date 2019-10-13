@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    container_name: watscho
+    restart: always
+    build: .
+    ports:
+      - '80:8000'
+    links:
+      - mongo
+      - redis
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - '6379:6379'
