@@ -45,8 +45,8 @@
 
 ### Docker compose
 
-    docker-compose up -d
-    docker-compose -f docker-compose.dev.yml up --build # with nodemon for development
+    docker-compose up -d --build
+    docker-compose -f docker-compose.dev.yml up --build # with nodemon
 
 
 ### ESlint Start
