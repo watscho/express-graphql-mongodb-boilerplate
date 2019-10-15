@@ -3,9 +3,13 @@ services:
   app:
     container_name: boilerplate
     restart: always
-    build: .
+    build: 
+      dockerfile: Dockerfile.dev
+      context: .
     ports:
       - '80:8000'
+    volumes: 
+      - ./:/usr/src/app
   mongo:
     container_name: mongo
     image: mongo
