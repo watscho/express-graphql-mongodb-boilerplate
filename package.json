@@ -1,7 +1,7 @@
 {
   "name": "boilerplate",
-  "version": "1.0.0",
-  "description": "boilerplate for any project",
+  "version": "2.0.0",
+  "description": "backend boilerplate",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
