@@ -36,12 +36,18 @@
 ### App Start
 
     npm run start
-    npm run start:local - with nodemon
+    npm run start:local # with nodemon
 
 ### Cron Start
 
     npm run agenda
-    npm run agenda:local - with nodemon
+    npm run agenda:local # with nodemon
+
+### Docker compose
+
+    docker-compose up -d
+    docker-compose -f docker-compose.dev.yml up --build # with nodemon for development
+
 
 ### ESlint Start
 
