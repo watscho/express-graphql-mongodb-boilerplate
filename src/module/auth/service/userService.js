@@ -41,6 +41,10 @@ class UserService {
       }
     ).exec()
   }
+
+  static getInstance () {
+    return new this()
+  }
 }
 
-module.exports = new UserService()
+module.exports = UserService

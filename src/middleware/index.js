@@ -1,4 +1,4 @@
-const AuthMiddleware = require('@app/middleware/authMiddleware')
+const AuthMiddleware = require('@app/middleware/authMiddleware').getInstance()
 
 module.exports = {
   isAuth: AuthMiddleware.isAuth,

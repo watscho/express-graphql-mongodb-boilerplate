@@ -18,6 +18,10 @@ class UserMail {
       html: token
     })
   }
+
+  static getInstance () {
+    return new this()
+  }
 }
 
-module.exports = new UserMail()
+module.exports = UserMail

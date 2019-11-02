@@ -49,6 +49,10 @@ class UserValidator {
 
     return resolve(source, args, context, info)
   }
+
+  static getInstance () {
+    return new this()
+  }
 }
 
-module.exports = new UserValidator()
+module.exports = UserValidator
