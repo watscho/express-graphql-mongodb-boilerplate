@@ -8,7 +8,7 @@
 
 ## Package list
 
-    "agenda"
+    "@hapi/bounce"
     "apollo-upload-server"
     "bcryptjs"
     "body-parser"
@@ -28,6 +28,7 @@
     "mongoose"
     "nodemailer"
     "validator"
+    "winston"
 
 ### cp .env.example .env
 
