@@ -1,5 +1,6 @@
 const crypto = require('crypto-random-string')
 const moment = require('moment')
+
 class UserService {
   async verifyRequest (user) {
     const token = crypto({ length: 48, type: 'url-safe' })
