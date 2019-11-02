@@ -8,7 +8,7 @@ const jobs = require('@cron/jobs')
 const agenda = new Agenda({
   name: process.env.APP_NAME,
   db: {
-    address: `${process.env.DB_HOST}/${process.env.DB_NAME}`,
+    address: `${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
     collection: process.env.JOBS_COLLECTION,
     options: { useNewUrlParser: true }
   },
