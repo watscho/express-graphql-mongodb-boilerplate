@@ -1,3 +1,4 @@
 /.git
 /.vscode
 node_modules
+*.log

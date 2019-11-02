@@ -1,4 +1,4 @@
-const UserValidator = require('@app/validator/userValidator')
+const UserValidator = require('@app/validator/userValidator').getInstance()
 
 module.exports = {
   signUpValidator: UserValidator.signUp,

@@ -30,6 +30,10 @@ class AuthMiddleware {
 
     return resolve(source, args, context, info)
   }
+
+  static getInstance () {
+    return new this()
+  }
 }
 
-module.exports = new AuthMiddleware()
+module.exports = AuthMiddleware
