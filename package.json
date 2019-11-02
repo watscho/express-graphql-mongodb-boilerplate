@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "start:local": "nodemon ./src/index.js",
-    "lint": "eslint --debug src/ worker/",
-    "lint:write": "eslint --debug src/ worker/ --fix"
+    "lint": "eslint --debug src/",
+    "lint:write": "eslint --debug src/ --fix"
   },
   "husky": {
     "hooks": {
