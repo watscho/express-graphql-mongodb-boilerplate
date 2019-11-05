@@ -6,10 +6,12 @@ const client = new Redis({
 })
 
 client.on('connect', function () {
+  // eslint-disable-next-line no-console
   console.log('Redis client connected')
 })
 
 client.on('error', function (err) {
+  // eslint-disable-next-line no-console
   console.log('Something went wrong ' + err)
 })
 

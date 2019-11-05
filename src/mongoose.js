@@ -6,10 +6,12 @@ mongoose
     useUnifiedTopology: true
   })
   .catch(err => {
+    // eslint-disable-next-line no-console
     console.log(err)
   })
 
 mongoose.connection.on('open', () => {
+  // eslint-disable-next-line no-console
   console.log('MongoDB connected')
 })
 
