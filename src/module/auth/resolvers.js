@@ -37,7 +37,7 @@ const signIn = {
       }
 
       const accessToken = jwt.sign(
-        { userId: user.id },
+        { userId: user._id },
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRATION }
       )
@@ -72,7 +72,7 @@ const signUp = {
       }).save()
 
       const accessToken = jwt.sign(
-        { userId: user.id },
+        { userId: user._id },
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRATION }
       )
@@ -144,7 +144,7 @@ const verify = {
       await user.save()
 
       const accessToken = jwt.sign(
-        { userId: user.id },
+        { userId: user._id },
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRATION }
       )
@@ -218,7 +218,7 @@ const newPassword = {
       await user.save()
 
       const accessToken = jwt.sign(
-        { userId: user.id },
+        { userId: user._id },
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRATION }
       )

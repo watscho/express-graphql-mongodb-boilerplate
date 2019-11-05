@@ -41,7 +41,7 @@
       "error",
       "as-needed"
     ],
-    "no-underscore-dangle": "error",
+    // "no-underscore-dangle": "error",
     "space-before-function-paren": [
       "error",
       {
