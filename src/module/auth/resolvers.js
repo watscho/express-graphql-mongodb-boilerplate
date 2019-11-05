@@ -264,7 +264,7 @@ const updateUser = {
   resolve: async ({ args: { email, firstName, lastName }, context: { user } }) => {
     try {
       if (user.email !== email) {
-        const userExist = await UserModel.findOne({ email: email })
+        const userExist = await UserModel.findOne({ email })
         if (userExist) {
           return Promise.reject(new Error('Email has already been taken.'))
         }
