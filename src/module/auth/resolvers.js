@@ -131,11 +131,15 @@ const verify = {
         return Promise.reject(new Error('Access Token is not valid or has expired.'))
       }
 
-      user.account.verification = {
-        verified: true,
-        token: null,
-        expireIn: null
-      }
+      user.set({
+        account: {
+          verification: {
+            verified: true,
+            token: null,
+            expireIn: null
+          }
+        }
+      })
 
       await user.save()
 
@@ -166,10 +170,14 @@ const resetPassword = {
       const token = crypto({ length: 48, type: 'url-safe' })
       const expireIn = moment().add(7, 'days')
 
-      user.account.resetPassword = {
-        token,
-        expireIn
-      }
+      user.set({
+        account: {
+          resetPassword: {
+            token,
+            expireIn
+          }
+        }
+      })
 
       await user.save()
 
@@ -197,11 +205,15 @@ const newPassword = {
 
       const hash = bcrypt.hashSync(newPassword, 10)
 
-      user.password = hash
-      user.account.resetPassword = {
-        token: null,
-        expireIn: null
-      }
+      user.set({
+        password: hash,
+        account: {
+          resetPassword: {
+            token: null,
+            expireIn: null
+          }
+        }
+      })
 
       await user.save()
 
@@ -234,7 +246,7 @@ const changePassword = {
 
       const hash = bcrypt.hashSync(newPassword, 10)
 
-      user.password = hash
+      user.set({ password: hash })
 
       await user.save()
 
@@ -258,7 +270,7 @@ const updateUser = {
         }
       }
 
-      for (const arg in args) user[arg] = args[arg]
+      user.set(args)
 
       return await user.save()
     } catch (error) {
@@ -273,7 +285,7 @@ const switchLocale = {
   args: { locale: 'Locale!' },
   resolve: async ({ args: { locale }, context: { user } }) => {
     try {
-      user.locale = locale
+      user.set({ locale })
 
       return await user.save()
     } catch (error) {
