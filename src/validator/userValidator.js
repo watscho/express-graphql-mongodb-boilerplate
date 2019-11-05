@@ -1,7 +1,7 @@
 const validator = require('validator')
 
 class UserValidator {
-  async changePassword (resolve, source, args, context, info) {
+  async changePassword(resolve, source, args, context, info) {
     const { newPassword } = args
 
     if (!validator.isLength(newPassword, { min: 6 })) {
@@ -11,7 +11,7 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  async newPassword (resolve, source, args, context, info) {
+  async newPassword(resolve, source, args, context, info) {
     const { newPassword } = args
 
     if (!validator.isLength(newPassword, { min: 6 })) {
@@ -21,12 +21,28 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  async signUp (resolve, source, args, context, info) {
+  async signUp(resolve, source, args, context, info) {
+    args.email = validator.trim(args.email)
+
+    args.email = validator.normalizeEmail(args.email, {
+      all_lowercase: true,
+      gmail_lowercase: true,
+      gmail_remove_dots: true,
+      gmail_remove_subaddress: true,
+      gmail_convert_googlemaildotcom: true,
+      outlookdotcom_remove_subaddress: true,
+      yahoo_lowercase: true,
+      yahoo_remove_subaddress: true,
+      icloud_lowercase: true,
+      icloud_remove_subaddress: true
+    })
+
     const { email, password } = args
 
-    if (!validator.isEmail(email)) {
+    if (!validator.isEmail(email, { allow_utf8_local_part: false })) {
       return Promise.reject(new Error('Error: email'))
     }
+
     if (!validator.isLength(password, { min: 6 })) {
       return Promise.reject(new Error('Error: password'))
     }
@@ -34,10 +50,25 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  async updateUser (resolve, source, args, context, info) {
+  async updateUser(resolve, source, args, context, info) {
+    args.email = validator.trim(args.email)
+
+    args.email = validator.normalizeEmail(args.email, {
+      all_lowercase: true,
+      gmail_lowercase: true,
+      gmail_remove_dots: true,
+      gmail_remove_subaddress: true,
+      gmail_convert_googlemaildotcom: true,
+      outlookdotcom_remove_subaddress: true,
+      yahoo_lowercase: true,
+      yahoo_remove_subaddress: true,
+      icloud_lowercase: true,
+      icloud_remove_subaddress: true
+    })
+
     const { email, firstName, lastName } = args
 
-    if (!validator.isEmail(email)) {
+    if (!validator.isEmail(email, { allow_utf8_local_part: false })) {
       return Promise.reject(new Error('Error: email'))
     }
     if (!validator.isLength(firstName, { min: 2 })) {
@@ -50,7 +81,7 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  static getInstance () {
+  static getInstance() {
     return new this()
   }
 }
