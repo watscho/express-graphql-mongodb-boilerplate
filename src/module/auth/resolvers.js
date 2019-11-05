@@ -261,18 +261,24 @@ const updateUser = {
   name: 'updateUser',
   type: 'User!',
   args: { email: 'String!', firstName: 'String!', lastName: 'String!' },
-  resolve: async ({ args, context: { user } }) => {
+  resolve: async ({ args: { email, firstName, lastName }, context: { user } }) => {
     try {
-      if (user.email !== args.email) {
-        const userExist = await UserModel.findOne({ email: args.email })
+      if (user.email !== email) {
+        const userExist = await UserModel.findOne({ email: email })
         if (userExist) {
           return Promise.reject(new Error('Email has already been taken.'))
         }
       }
 
-      user.set(args)
+      user.set({
+        email,
+        firstName,
+        lastName
+      })
 
-      return await user.save()
+      await user.save()
+
+      return user
     } catch (error) {
       return Promise.reject(error)
     }
@@ -287,7 +293,9 @@ const switchLocale = {
     try {
       user.set({ locale })
 
-      return await user.save()
+      await user.save()
+
+      return user
     } catch (error) {
       return Promise.reject(error)
     }
