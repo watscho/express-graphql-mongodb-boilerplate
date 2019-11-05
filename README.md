@@ -45,7 +45,7 @@
 ### ESlint Start
 
     npm run lint
-    npm run lint:write - with prefix --fix
+    npm run lint:write # with prefix --fix
 
 ## Queries
 
