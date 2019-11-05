@@ -1,7 +1,7 @@
 const validator = require('validator')
 
 class UserValidator {
-  async changePassword(resolve, source, args, context, info) {
+  async changePassword (resolve, source, args, context, info) {
     const { newPassword } = args
 
     if (!validator.isLength(newPassword, { min: 6 })) {
@@ -11,7 +11,7 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  async newPassword(resolve, source, args, context, info) {
+  async newPassword (resolve, source, args, context, info) {
     const { newPassword } = args
 
     if (!validator.isLength(newPassword, { min: 6 })) {
@@ -21,7 +21,7 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  async signUp(resolve, source, args, context, info) {
+  async signUp (resolve, source, args, context, info) {
     args.email = validator.trim(args.email)
 
     args.email = validator.normalizeEmail(args.email, {
@@ -50,7 +50,7 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  async updateUser(resolve, source, args, context, info) {
+  async updateUser (resolve, source, args, context, info) {
     args.email = validator.trim(args.email)
 
     args.email = validator.normalizeEmail(args.email, {
@@ -81,7 +81,7 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
-  static getInstance() {
+  static getInstance () {
     return new this()
   }
 }

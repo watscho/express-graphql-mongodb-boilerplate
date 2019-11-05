@@ -10,7 +10,7 @@ class UserMail {
       to: email,
       subject: 'Reset Password',
       html: token
-    }, (error) => {
+    }, error => {
       if (error) {
         winston.error(error)
       }
@@ -24,7 +24,7 @@ class UserMail {
       to: email,
       subject: 'Verification',
       html: token
-    }, (error) => {
+    }, error => {
       if (error) {
         winston.error(error)
       }
