@@ -33,7 +33,10 @@ class UserMail {
   }
 
   static getInstance () {
-    return new this()
+    if (!this.instance) {
+      this.instance = new this()
+    }
+    return this.instance
   }
 }
 
