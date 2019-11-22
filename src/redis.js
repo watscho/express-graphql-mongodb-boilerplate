@@ -15,13 +15,8 @@ client.on('error', error => {
   }
 })
 
-let connected = false
-
 client.on('connect', () => {
-  if (!connected) {
-    winston.info('Redis client connected')
-    connected = true
-  }
+  winston.info('Redis client connected')
 })
 
 module.exports = client
