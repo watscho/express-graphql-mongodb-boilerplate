@@ -10,5 +10,3 @@ winston.configure({
     new winston.transports.File({ filename: process.env.API_LOGS_FILENAME })
   ]
 })
-
-module.exports = winston
