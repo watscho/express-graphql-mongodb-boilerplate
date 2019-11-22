@@ -1,18 +1,27 @@
 const Redis = require('ioredis')
+const winston = require('winston')
 
 const client = new Redis({
   port: process.env.REDIS_PORT,
   host: process.env.REDIS_HOST
 })
 
-client.on('connect', function () {
-  // eslint-disable-next-line no-console
-  console.log('Redis client connected')
+let errored = false
+
+client.on('error', error => {
+  if (!errored) {
+    winston.error(error)
+    errored = true
+  }
 })
 
-client.on('error', function (err) {
-  // eslint-disable-next-line no-console
-  console.log('Something went wrong ' + err)
+let connected = false
+
+client.on('connect', () => {
+  if (!connected) {
+    winston.info('Redis client connected')
+    connected = true
+  }
 })
 
 module.exports = client
