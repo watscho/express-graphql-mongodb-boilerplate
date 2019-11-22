@@ -17,6 +17,7 @@ client.on('error', error => {
 
 client.on('connect', () => {
   winston.info('Redis client connected')
+  errored = false
 })
 
 module.exports = client
