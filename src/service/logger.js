@@ -1,4 +1,5 @@
 const winston = require('winston')
+
 const { format: { combine, timestamp, json } } = winston
 
 winston.configure({
