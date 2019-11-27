@@ -7,7 +7,7 @@ const i18nextMiddleware = require('i18next-express-middleware')
 require('module-alias/register')
 require('dotenv').config()
 
-require('@app/service/winston')
+require('@app/service/logger')
 require('@app/redis')
 require('@app/i18next')
 
