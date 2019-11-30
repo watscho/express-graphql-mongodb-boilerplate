@@ -16,11 +16,6 @@ schemaComposer.createObjectTC({
   fields: { accessToken: 'String!' }
 })
 
-schemaComposer.createObjectTC({
-  name: 'Succeed',
-  fields: { succeed: 'Boolean!' }
-})
-
 schemaComposer.createEnumTC({
   name: 'Locale',
   values: {

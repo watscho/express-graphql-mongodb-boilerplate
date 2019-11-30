@@ -1,7 +1,7 @@
 const { schemaComposer } = require('graphql-compose')
 const { GraphQLUpload } = require('apollo-upload-server')
 
-schemaComposer.add(GraphQLUpload)
+require('@app/graphql/types')
 
 const { isAuth, isGuest, isUnverfied /* isVerified */ } = require('@app/middleware')
 const {
@@ -11,6 +11,8 @@ const {
   updateUserValidator
 } = require('@app/validator')
 const { UserTC } = require('@app/module')
+
+schemaComposer.add(GraphQLUpload)
 
 schemaComposer.Query.addFields({
   user: UserTC.getResolver('user', [isAuth])
