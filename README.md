@@ -6,6 +6,32 @@
 
 ### E-mail verification, Multi language, Redis for token blacklisting
 
+### Package list
+
+```bash
+"@hapi/bounce"
+"apollo-upload-server"
+"bcryptjs"
+"body-parser"
+"crypto-random-string"
+"dotenv"
+"express"
+"express-graphql"
+"graphql"
+"graphql-compose"
+"graphql-compose-mongoose"
+"i18next"
+"i18next-express-middleware"
+"ioredis"
+"jsonwebtoken"
+"module-alias"
+"moment"
+"mongoose"
+"nodemailer"
+"validator"
+"winston"
+```
+
 ### Project structure
 
 ```bash
@@ -58,33 +84,11 @@
 └─ README.md
 ```
 
-### Package list
+### COPY .env - example file
 
 ```bash
-"@hapi/bounce"
-"apollo-upload-server"
-"bcryptjs"
-"body-parser"
-"crypto-random-string"
-"dotenv"
-"express"
-"express-graphql"
-"graphql"
-"graphql-compose"
-"graphql-compose-mongoose"
-"i18next"
-"i18next-express-middleware"
-"ioredis"
-"jsonwebtoken"
-"module-alias"
-"moment"
-"mongoose"
-"nodemailer"
-"validator"
-"winston"
+cp .env.example .env
 ```
-
-### cp .env.example .env
 
 ### API Start
 
