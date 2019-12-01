@@ -50,53 +50,54 @@
 ### Project Structure
 
 ```bash
-├── .env.example
-├── .eslintignore
-├── .eslint
-├── .gitignore
-├── .dockerignore
-├── Dockerfile
-├── Dockerfile.dev
-├── README.md
-├── docker-compose.dev.yml
-├── docker-compose.yml
-├── package.json
-└── src
-    ├── graphql
-    │   ├── index.js
-    │   ├── schema.js
-    │   └── types.js
-    ├── i18next
-    │   ├── index.js
-    │   └── locales
-    │       ├── en.json
-    │       └── ge.json
-    ├── index.js
-    ├── middleware
-    │   ├── authMiddleware.js
-    │   ├── authentication.js
-    │   └── index.js
-    ├── module
-    │   ├── auth
-    │   │   ├── index.js
-    │   │   ├── mail
-    │   │   │   ├── index.js
-    │   │   │   └── userMail.js
-    │   │   ├── resolvers.js
-    │   │   ├── service
-    │   │   │   ├── index.js
-    │   │   │   └── userService.js
-    │   │   ├── types.js
-    │   │   └── user.js
-    │   └── index.js
-    ├── mongoose.js
-    ├── redis.js
-    ├── service
-    │   ├── logger.js
-    │   └── nodemailer.js
-    └── validator
-        ├── index.js
-        └── userValidator.js
+
+├─ src
+│  ├─ graphql
+│  │  ├─ index.js
+│  │  ├─ schema.js
+│  │  └─ types.js
+│  ├─ i18next
+│  │  ├─ locales
+│  │  │  ├─  en.json
+│  │  │  └─  ge.json
+│  │  └─ index.js
+│  ├─ middleware
+│  │  ├─ authentication.js
+│  │  ├─ authMiddleware.js
+│  │  └─  index.js
+│  ├─ module
+│  │  ├─ auth
+│  │  │  ├─ mail
+│  │  │  │  ├─ index.js
+│  │  │  │  └─ userMail.js
+│  │  │  ├─ service
+│  │  │  │  ├─ index.js
+│  │  │  │  └─ userService.js
+│  │  │  ├─ index.js
+│  │  │  ├─ resolvers.js
+│  │  │  ├─ types.js
+│  │  │  └─ user.js
+│  │  └─ index.js
+│  ├─ service
+│  │  ├─ logger.js
+│  │  └─ nodemailer.js
+│  ├─ validator
+│  │  ├─ index.js
+│  │  └─ userValidator.js
+│  ├─ index.js
+│  ├─ mongoose.js
+│  └─ redis.js
+├─ .dockerignore
+├─ .env.example
+├─ .eslintignore
+├─ .eslint
+├─ .gitignore
+├─ docker-compose.dev.yml
+├─ docker-compose.yml
+├─ Dockerfile
+├─ Dockerfile.dev
+├─ package.json
+└─ README.md
 ```
 
 ## Queries
