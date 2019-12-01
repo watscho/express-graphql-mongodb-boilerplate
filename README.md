@@ -6,51 +6,9 @@
 
 ### E-mail verification, Multi language, Redis for token blacklisting
 
-## Package list
-
-    "@hapi/bounce"
-    "apollo-upload-server"
-    "bcryptjs"
-    "body-parser"
-    "crypto-random-string"
-    "dotenv"
-    "express"
-    "express-graphql"
-    "graphql"
-    "graphql-compose"
-    "graphql-compose-mongoose"
-    "i18next"
-    "i18next-express-middleware"
-    "ioredis"
-    "jsonwebtoken"
-    "module-alias"
-    "moment"
-    "mongoose"
-    "nodemailer"
-    "validator"
-    "winston"
-
-### cp .env.example .env
-
-### API Start
-
-    npm run start
-    npm run start:local # with nodemon
-
-### Docker compose
-
-    docker-compose up -d --build
-    docker-compose -f docker-compose.dev.yml up --build # with nodemon
-
-### ESlint Start
-
-    npm run lint
-    npm run lint:write # with prefix --fix
-
-### Project Structure
+### Project structure
 
 ```bash
-
 ├─ src
 │  ├─ graphql
 │  │  ├─ index.js
@@ -98,6 +56,55 @@
 ├─ Dockerfile.dev
 ├─ package.json
 └─ README.md
+```
+
+### Package list
+
+```bash
+"@hapi/bounce"
+"apollo-upload-server"
+"bcryptjs"
+"body-parser"
+"crypto-random-string"
+"dotenv"
+"express"
+"express-graphql"
+"graphql"
+"graphql-compose"
+"graphql-compose-mongoose"
+"i18next"
+"i18next-express-middleware"
+"ioredis"
+"jsonwebtoken"
+"module-alias"
+"moment"
+"mongoose"
+"nodemailer"
+"validator"
+"winston"
+```
+
+### cp .env.example .env
+
+### API Start
+
+```bash
+npm run start
+npm run start:local # with nodemon
+```
+
+### Docker compose
+
+```bash
+docker-compose up -d --build
+docker-compose -f docker-compose.dev.yml up --build # with nodemon
+```
+
+### ESlint Start
+
+```bash
+npm run lint
+npm run lint:write # with prefix --fix
 ```
 
 ## Queries
