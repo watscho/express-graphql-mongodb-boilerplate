@@ -32,6 +32,33 @@
 "winston"
 ```
 
+### COPY .env.example to .env
+
+```bash
+cp .env.example .env
+```
+
+### API Start
+
+```bash
+npm run start
+npm run start:local # with nodemon
+```
+
+### Docker compose
+
+```bash
+docker-compose up -d --build
+docker-compose -f docker-compose.dev.yml up --build # with nodemon
+```
+
+### ESlint Start
+
+```bash
+npm run lint
+npm run lint:write # with prefix --fix
+```
+
 ### Project structure
 
 ```bash
@@ -82,33 +109,6 @@
 ├─ Dockerfile.dev
 ├─ package.json
 └─ README.md
-```
-
-### COPY .env - example file
-
-```bash
-cp .env.example .env
-```
-
-### API Start
-
-```bash
-npm run start
-npm run start:local # with nodemon
-```
-
-### Docker compose
-
-```bash
-docker-compose up -d --build
-docker-compose -f docker-compose.dev.yml up --build # with nodemon
-```
-
-### ESlint Start
-
-```bash
-npm run lint
-npm run lint:write # with prefix --fix
 ```
 
 ## Queries
