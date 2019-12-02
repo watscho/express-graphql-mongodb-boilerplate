@@ -6,31 +6,32 @@
 
 ### E-mail verification, Multi language, Redis for token blacklisting
 
-### Package list
+Package list
+--------
 
-```bash
-"@hapi/bounce"
-"apollo-upload-server"
-"bcryptjs"
-"body-parser"
-"crypto-random-string"
-"dotenv"
-"express"
-"express-graphql"
-"graphql"
-"graphql-compose"
-"graphql-compose-mongoose"
-"i18next"
-"i18next-express-middleware"
-"ioredis"
-"jsonwebtoken"
-"module-alias"
-"moment"
-"mongoose"
-"nodemailer"
-"validator"
-"winston"
-```
+| Package                    | Description                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @hapi/bounce               | Selective error catching and rewrite rules                                                                                                                                                                                                                                                                                                                            |
+| apollo-upload-server       | Middleware and an Upload scalar to add support for GraphQL multipart requests (file uploads via queries and mutations) to various Node.js GraphQL servers.                                                                                                                                                                                                            |
+| bcryptjs                   | Optimized bcrypt in JavaScript with zero dependencies. Compatible to the C++ bcrypt binding on node.js and also working in the browser.                                                                                                                                                                                                                               |
+| body-parser                | Node.js body parsing middleware.                                                                                                                                                                                                                                                                                                                                      |
+| crypto-random-string       | Generate a cryptographically strong random string                                                                                                                                                                                                                                                                                                                     |
+| dotenv                     | Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.                                                                                                                                                     |
+| express                    | Fast, unopinionated, minimalist web framework for node.                                                                                                                                                                                                                                                                                                               |
+| express-graphql            | Create a GraphQL HTTP server with any HTTP web framework that supports connect styled middleware, including Connect itself, Express and Restify.                                                                                                                                                                                                                      |
+| graphql                    | The JavaScript reference implementation for GraphQL, a query language for APIs created by Facebook.                                                                                                                                                                                                                                                                   |
+| graphql-compose            | GraphQL – is a query language for APIs. graphql-js is the reference implementation of GraphQL for nodejs which introduce GraphQL type system for describing schema (definition over configuration) and executes queries on the server side. express-graphql is a HTTP server which gets request data, passes it to graphql-js and returned result passes to response. |
+| graphql-compose-mongoose   | This is a plugin for graphql-compose, which derives GraphQLType from your mongoose model. Also derives bunch of internal GraphQL Types. Provide all CRUD resolvers, including graphql connection, also provided basic search via operators ($lt, $gt and so on).                                                                                                      |
+| i18next                    | i18next is a very popular internationalization framework for browser or any other javascript environment (eg. node.js).                                                                                                                                                                                                                                               |
+| i18next-express-middleware | This is a middleware to use i18next in express.js.                                                                                                                                                                                                                                                                                                                    |
+| ioredis                    | A robust, performance-focused and full-featured Redis client for Node.js.                                                                                                                                                                                                                                                                                             |
+| jsonwebtoken               | This was developed against draft-ietf-oauth-json-web-token-08. It makes use of node-jws                                                                                                                                                                                                                                                                               |
+| module-alias               | Create aliases of directories and register custom module paths in NodeJS like a boss!                                                                                                                                                                                                                                                                                 |
+| moment                     | A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.                                                                                                                                                                                                                                                                    |
+| mongoose                   | Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports both promises and callbacks.                                                                                                                                                                                                                            |
+| nodemailer                 | Send e-mails from Node.js – easy as cake!                                                                                                                                                                                                                                                                                                                             |
+| validator                  | A library of string validators and sanitizers.                                                                                                                                                                                                                                                                                                                        |
+| winston                    | A logger for just about everything.                                                                                                                                                                                                                                                                                                                                   |
 
 ### COPY .env.example to .env
 
