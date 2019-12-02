@@ -18,11 +18,11 @@ const userSchema = new Schema(
           default: false
         },
         token: String,
-        expireIn: Date
+        expiresIn: Date
       },
       resetPassword: {
         token: String,
-        expireIn: Date
+        expiresIn: Date
       }
     }
   },

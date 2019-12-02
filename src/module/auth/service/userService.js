@@ -4,13 +4,13 @@ const moment = require('moment')
 class UserService {
   async verifyRequest (user) {
     const token = crypto({ length: 48, type: 'url-safe' })
-    const expireIn = moment().add(7, 'days')
+    const expiresIn = moment().add(7, 'days')
 
     user.set({
       account: {
         verification: {
           token,
-          expireIn
+          expiresIn
         }
       }
     })

@@ -136,7 +136,7 @@ const verify = {
           verification: {
             verified: true,
             token: null,
-            expireIn: null
+            expiresIn: null
           }
         }
       })
@@ -168,13 +168,13 @@ const resetPassword = {
       }
 
       const token = crypto({ length: 48, type: 'url-safe' })
-      const expireIn = moment().add(7, 'days')
+      const expiresIn = moment().add(7, 'days')
 
       user.set({
         account: {
           resetPassword: {
             token,
-            expireIn
+            expiresIn
           }
         }
       })
@@ -210,7 +210,7 @@ const newPassword = {
         account: {
           resetPassword: {
             token: null,
-            expireIn: null
+            expiresIn: null
           }
         }
       })
