@@ -1,6 +1,5 @@
 const { schemaComposer } = require('graphql-compose')
 const { composeWithMongoose } = require('graphql-compose-mongoose')
-const i18next = require('i18next')
 
 const UserModel = require('@app/module/auth/user')
 
@@ -19,7 +18,10 @@ schemaComposer.createObjectTC({
 
 schemaComposer.createEnumTC({
   name: 'Locale',
-  values: i18next.graphQLEnumTC
+  values: {
+    en: { value: 'en' },
+    ge: { value: 'ge' }
+  }
 })
 
 module.exports = UserTC
