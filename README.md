@@ -32,6 +32,20 @@
 | validator                  | A library of string validators and sanitizers.                                                                                                                                                                                                                                                                                                                        |
 | winston                    | A logger for just about everything.                                                                                                                                                                                                                                                                                                                                   |
 
+### Redis
+
+_Mac (using [homebrew](http://brew.sh/)):_
+
+```bash
+brew install redis
+```
+
+_Linux:_
+
+```bash
+sudo apt-get install redis-server
+```
+
 ### COPY .env.example to .env
 
 ```bash
@@ -109,12 +123,12 @@ npm run lint:write # with prefix --fix
 ├─ .eslintignore
 ├─ .eslint
 ├─ .gitignore
-├─ docker-compose.dev.yml
-├─ docker-compose.yml
 ├─ Dockerfile
 ├─ Dockerfile.dev
-├─ package.json
-└─ README.md
+├─ README.md
+├─ docker-compose.dev.yml
+├─ docker-compose.yml
+└─ package.json
 ```
 
 ## Queries
