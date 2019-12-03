@@ -1,4 +1,4 @@
-# express-graphql-mongodb-boilerplate
+# [express-graphql-mongodb-boilerplate](https://github.com/watscho/express-graphql-mongodb-boilerplate)
 
 ## Authentication from scratch
 
