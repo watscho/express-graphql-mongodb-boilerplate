@@ -16,17 +16,21 @@ const graphql = require('@app/graphql')
 
 const app = express()
 
-app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-  optionsSuccessStatus: 200
-}))
-
 app.use(
   '/graphql',
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    optionsSuccessStatus: 200
+  }),
   i18nextMiddleware.handle(i18next),
   authentication,
   bodyParser.json(),
   graphql
 )
+
+app.use('*', (req, res) => {
+  res.status(404)
+    .send('404 Not Found')
+})
 
 app.listen(process.env.APP_PORT)
