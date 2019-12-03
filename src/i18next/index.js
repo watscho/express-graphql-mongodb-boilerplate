@@ -17,3 +17,5 @@ i18next.use(i18nextMiddleware.LanguageDetector).init({
     ge: { translation: localeGE }
   }
 })
+
+module.exports = { i18next, i18nextMiddleware }
