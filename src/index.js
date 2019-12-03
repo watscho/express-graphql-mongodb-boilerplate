@@ -16,10 +16,9 @@ const graphql = require('@app/graphql')
 
 const app = express()
 
-app.use(i18nextMiddleware.handle(i18next))
-
 app.use(
   '/graphql',
+  i18nextMiddleware.handle(i18next),
   authentication,
   bodyParser.json(),
   apolloUploadExpress(),
