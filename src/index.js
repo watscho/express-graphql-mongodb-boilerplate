@@ -16,7 +16,10 @@ const graphql = require('@app/graphql')
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+  optionsSuccessStatus: 200
+}))
 
 app.use(
   '/graphql',
