@@ -226,3 +226,5 @@ mutation switchLocale($locale: Locale!) {
   }
 }
 ```
+
+**Note:** For any question [issues](https://github.com/watscho/express-graphql-mongodb-boilerplate/issues)
