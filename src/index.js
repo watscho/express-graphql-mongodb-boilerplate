@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { apolloUploadExpress } = require('apollo-upload-server')
 const i18next = require('i18next')
 const i18nextMiddleware = require('i18next-express-middleware')
 
@@ -21,7 +20,6 @@ app.use(
   i18nextMiddleware.handle(i18next),
   authentication,
   bodyParser.json(),
-  apolloUploadExpress(),
   graphql
 )
 
