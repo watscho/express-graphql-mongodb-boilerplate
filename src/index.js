@@ -1,7 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const i18next = require('i18next')
-const i18nextMiddleware = require('i18next-express-middleware')
 const cors = require('cors')
 
 require('module-alias/register')
@@ -9,8 +7,8 @@ require('dotenv').config()
 
 require('@app/service/logger')
 require('@app/redis')
-require('@app/i18next')
 
+const { i18next, i18nextMiddleware } = require('@app/i18next')
 const authentication = require('@app/middleware/authentication')
 const graphql = require('@app/graphql')
 
