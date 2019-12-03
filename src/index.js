@@ -1,8 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { apolloUploadExpress } = require('apollo-upload-server')
 const i18next = require('i18next')
 const i18nextMiddleware = require('i18next-express-middleware')
+const cors = require('cors')
 
 require('module-alias/register')
 require('dotenv').config()
@@ -16,12 +16,16 @@ const graphql = require('@app/graphql')
 
 const app = express()
 
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+  optionsSuccessStatus: 200
+}))
+
 app.use(
   '/graphql',
   i18nextMiddleware.handle(i18next),
   authentication,
   bodyParser.json(),
-  apolloUploadExpress(),
   graphql
 )
 
