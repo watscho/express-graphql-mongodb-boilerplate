@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    container_name: boilerplate
+    container_name: express-graphql-mongodb-boilerplate
     restart: always
     build: 
       dockerfile: Dockerfile.dev
