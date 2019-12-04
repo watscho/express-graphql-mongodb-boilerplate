@@ -1,12 +1,28 @@
 {
   "name": "express-graphql-mongodb-boilerplate",
-  "version": "6.1.4",
+  "version": "6.1.5",
   "description": "A boilerplate for Node.js applications / Authentication from scratch - express, graphql - (graphql compose), mongodb.",
   "main": "./src",
   "repository": {
     "type": "git",
     "url": "https://github.com/watscho/express-graphql-mongodb-boilerplate"
   },
+  "bugs": "https://github.com/watscho/express-graphql-mongodb-boilerplate/issues",
+  "keywords": [
+    "express",
+    "graphql",
+    "graphql-compose",
+    "mongodb",
+    "mongoose",
+    "node",
+    "nodejs",
+    "authentication",
+    "scratch",
+    "boilerplate",
+    "authorization",
+    "docker",
+    "api"
+  ],
   "scripts": {
     "start": "node ./src",
     "start:local": "nodemon ./src",
