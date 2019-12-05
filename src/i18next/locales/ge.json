@@ -1,3 +1,7 @@
 {
-  "test": "ჰი!"
+  "verification": "ვერიფიკაცია",
+  "confirm": "დადასტურება",
+  "poweredBy": "Powered by",
+  "resetPassword": "პაროლის აღდგენა",
+  "yourAccountHasBeenSuccessfullyVerified": "თქვენ წარმატებით გაიარეთ ვერიფიკაცია"
 }
