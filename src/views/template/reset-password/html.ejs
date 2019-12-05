@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%=locale%>">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><%=i18n.t('resetPassword')%></title>
+  <title><%=i18n.getFixedT(locale)('resetPassword')%></title>
   <style>
     body {
       background-color: #f6f6f6;
@@ -244,7 +244,7 @@
                 <table border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td>
-                      <h1><%=i18n.t('resetPassword')%></h1>
+                      <h1><%=i18n.getFixedT(locale)('resetPassword')%></h1>
                       <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                         <tbody>
                           <tr>
@@ -253,7 +253,9 @@
                                 <tbody>
                                   <tr>
                                     <td>
-                                      <a href="<%=clientUrl + '/#'%>" target="_blank"><%=i18n.t('confirm')%></a>
+                                      <a href="<%=clientUrl + '/#'%>" target="_blank">
+                                        <%=i18n.getFixedT(locale)('confirm')%>
+                                      </a>
                                     </td>
                                   </tr>
                                 </tbody>
@@ -272,7 +274,7 @@
             <table border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td class="content-block powered-by">
-                  <%=i18n.t('poweredBy')%> <a href="https://github.com/watscho">watscho</a>.
+                  <%=i18n.getFixedT(locale)('poweredBy')%> <a href="https://github.com/watscho">watscho</a>.
                 </td>
               </tr>
             </table>

@@ -80,7 +80,7 @@ const signUp = {
 
       const token = await verifyRequestService(user)
 
-      verifyRequestMail(email, token)
+      verifyRequestMail(user, token)
 
       return { accessToken }
     } catch (error) {
@@ -111,7 +111,7 @@ const verifyRequest = {
     try {
       const token = await verifyRequestService(user)
 
-      verifyRequestMail(user.email, token)
+      verifyRequestMail(user, token)
       return { succeed: true }
     } catch (error) {
       return Promise.reject(error)
@@ -150,7 +150,7 @@ const verify = {
         { expiresIn: process.env.JWT_EXPIRATION }
       )
 
-      verifyMail(user.email, user.locale)
+      verifyMail(user)
 
       return { accessToken }
     } catch (error) {
@@ -184,7 +184,7 @@ const resetPassword = {
 
       await user.save()
 
-      resetPasswordMail(email, token)
+      resetPasswordMail(user, token)
 
       return { succeed: true }
     } catch (error) {
@@ -294,7 +294,7 @@ const updateUser = {
       if (verifyRequest) {
         const token = await verifyRequestService(user)
 
-        verifyRequestMail(email, token)
+        verifyRequestMail(user, token)
       }
 
       return user

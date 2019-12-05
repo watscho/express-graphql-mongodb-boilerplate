@@ -1,6 +1,8 @@
 class AuthMiddleware {
   async isAuth (resolve, source, args, context, info) {
-    if (!context.user) {
+    const { user } = context
+
+    if (!user) {
       return Promise.reject(new Error('You must be authorized.'))
     }
 
@@ -8,7 +10,9 @@ class AuthMiddleware {
   }
 
   async isGuest (resolve, source, args, context, info) {
-    if (context.user) {
+    const { user } = context
+
+    if (user) {
       return Promise.reject(new Error('You have already authorized.'))
     }
 
@@ -16,7 +20,9 @@ class AuthMiddleware {
   }
 
   async isVerified (resolve, source, args, context, info) {
-    if (!context.user.account.verification.verified) {
+    const { user: { account: { verification: { verified } } } } = context
+
+    if (!verified) {
       return Promise.reject(new Error('You must be verified.'))
     }
 
@@ -24,7 +30,9 @@ class AuthMiddleware {
   }
 
   async isUnverfied (resolve, source, args, context, info) {
-    if (context.user.account.verification.verified) {
+    const { user: { account: { verification: { verified } } } } = context
+
+    if (verified) {
       return Promise.reject(new Error('You have already verified.'))
     }
 

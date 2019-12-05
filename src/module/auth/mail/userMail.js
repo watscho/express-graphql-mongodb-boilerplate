@@ -3,43 +3,49 @@ const winston = require('winston')
 const { mail } = require('@app/service/nodemailer')
 
 class UserMail {
-  verifyRequest (email, token) {
+  verifyRequest (user, token) {
     return mail.send({
       template: 'verify-request',
       message: {
         from: '"Verification request" <no-replay@example.com>',
-        to: email,
+        to: user.email,
         subject: 'Verification request'
       },
-      locals: { token }
+      locals: {
+        locale: user.locale,
+        token
+      }
     }).catch(error => {
       winston.error(error)
     })
   }
 
-  verify (email, locale) {
+  verify (user) {
     return mail.send({
       template: 'verify',
       message: {
         from: '"Verification" <no-replay@example.com>',
-        to: email,
+        to: user.email,
         subject: 'Verification'
       },
-      locals: { locale }
+      locals: { locale: user.locale }
     }).catch(error => {
       winston.error(error)
     })
   }
 
-  resetPassword (email, token) {
+  resetPassword (user, token) {
     return mail.send({
       template: 'reset-password',
       message: {
         from: '"Reset Password" <no-replay@example.com>',
-        to: email,
+        to: user.email,
         subject: 'Reset Password'
       },
-      locals: { token }
+      locals: {
+        locale: user.locale,
+        token
+      }
     }).catch(error => {
       winston.error(error)
     })
