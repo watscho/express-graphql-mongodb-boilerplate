@@ -266,20 +266,36 @@ const updateUser = {
   args: { email: 'String!', firstName: 'String!', lastName: 'String!' },
   resolve: async ({ args: { email, firstName, lastName }, context: { user } }) => {
     try {
+      let { account: { verification: { verified } } } = user,
+        verifyRequest = false
+
       if (user.email !== email) {
         const userExist = await UserModel.findOne({ email })
         if (userExist) {
           return Promise.reject(new Error('Email has already been taken.'))
         }
+        verified = false
+        verifyRequest = true
       }
 
       user.set({
         email,
         firstName,
-        lastName
+        lastName,
+        account: {
+          verification: {
+            verified
+          }
+        }
       })
 
       await user.save()
+
+      if (verifyRequest) {
+        const token = await verifyRequestService(user)
+
+        verifyRequestMail(email, token)
+      }
 
       return user
     } catch (error) {
