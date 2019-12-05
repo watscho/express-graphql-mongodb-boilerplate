@@ -116,6 +116,15 @@ npm run lint:write # with prefix --fix
 │  ├─ validator
 │  │  ├─ index.js
 │  │  └─ userValidator.js
+│  ├─ views
+│  │  ├─ template
+│  │  │  ├─ reset-password
+│  │  │  │  └─ html.ejs
+│  │  │  ├─ verify
+│  │  │  │  └─ html.ejs
+│  │  │  └─ verify-request
+│  │  │     └─ html.ejs
+│  │  └─ index.js
 │  ├─ index.js
 │  ├─ mongoose.js
 │  └─ redis.js
