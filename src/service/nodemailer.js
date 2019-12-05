@@ -1,4 +1,7 @@
+const path = require('path')
 const nodemailer = require('nodemailer')
+const Email = require('email-templates')
+const i18next = require('i18next')
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST,
@@ -9,4 +12,18 @@ const transporter = nodemailer.createTransport({
   }
 })
 
-module.exports = { transporter }
+const mail = new Email({
+  views: {
+    root: path.join(process.env.NODE_PATH, 'views', 'template'),
+    locals: {
+      i18n: i18next,
+      clientUrl: process.env.CLIENT_URL
+    },
+    options: { extension: 'ejs' }
+  },
+  preview: false,
+  send: true,
+  transport: transporter
+})
+
+module.exports = { transporter, mail }

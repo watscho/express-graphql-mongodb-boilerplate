@@ -17,7 +17,7 @@ const app = express()
 app.use(
   '/graphql',
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: process.env.CLIENT_URL,
     optionsSuccessStatus: 200
   }),
   i18nextMiddleware.handle(i18next),

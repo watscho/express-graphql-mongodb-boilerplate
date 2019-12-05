@@ -1,3 +1,8 @@
 {
-  "test": "hi!"
+  "verification": "Verification",
+  "confirm": "Confirm",
+  "poweredBy": "Powered by",
+  "resetPassword": "Reset password",
+  "reset": "Reset",
+  "yourAccountHasBeenSuccessfullyVerified": "Your account has been successfully verified"
 }

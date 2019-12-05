@@ -1,35 +1,48 @@
-const Bounce = require('@hapi/bounce')
 const winston = require('winston')
 
-const { transporter } = require('@app/service/nodemailer')
+const { mail } = require('@app/service/nodemailer')
 
 class UserMail {
-  resetPassword (email, token) {
-    return Bounce.background(() => transporter.sendMail({
-      from: '"Reset Password" <no-replay@example.com>',
-      to: email,
-      subject: 'Reset Password',
-      html: token
-    }, error => {
-      if (error) {
-        winston.error(error)
-      }
-      transporter.close()
-    }))
+  verifyRequest (email, token) {
+    return mail.send({
+      template: 'verify-request',
+      message: {
+        from: '"Verification request" <no-replay@example.com>',
+        to: email,
+        subject: 'Verification request'
+      },
+      locals: { token }
+    }).catch(error => {
+      winston.error(error)
+    })
   }
 
-  verifyRequest (email, token) {
-    return Bounce.background(() => transporter.sendMail({
-      from: '"Verification" <no-replay@example.com>',
-      to: email,
-      subject: 'Verification',
-      html: token
-    }, error => {
-      if (error) {
-        winston.error(error)
-      }
-      transporter.close()
-    }))
+  verify (email, locale) {
+    return mail.send({
+      template: 'verify',
+      message: {
+        from: '"Verification" <no-replay@example.com>',
+        to: email,
+        subject: 'Verification'
+      },
+      locals: { locale }
+    }).catch(error => {
+      winston.error(error)
+    })
+  }
+
+  resetPassword (email, token) {
+    return mail.send({
+      template: 'reset-password',
+      message: {
+        from: '"Reset Password" <no-replay@example.com>',
+        to: email,
+        subject: 'Reset Password'
+      },
+      locals: { token }
+    }).catch(error => {
+      winston.error(error)
+    })
   }
 
   static getInstance () {

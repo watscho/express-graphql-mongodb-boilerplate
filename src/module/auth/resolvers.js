@@ -6,6 +6,7 @@ const moment = require('moment')
 const redis = require('@app/redis')
 const {
   verifyRequestMail,
+  verifyMail,
   resetPasswordMail
 } = require('@app/module/auth/mail')
 const { verifyRequestService } = require('@app/module/auth/service')
@@ -148,6 +149,8 @@ const verify = {
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRATION }
       )
+
+      verifyMail(user.email, user.locale)
 
       return { accessToken }
     } catch (error) {
