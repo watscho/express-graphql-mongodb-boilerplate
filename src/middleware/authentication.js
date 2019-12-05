@@ -18,13 +18,12 @@ const authentication = async (req, res, next) => {
     if (!decoded) {
       return next()
     }
-    const expiredTokens = await redis.lrange('expiredTokens', 0, -1)
 
-    for (const expiredToken in expiredTokens) {
-      if (expiredTokens[expiredToken] === accessToken) {
-        return next()
-      }
+    const expiredToken = await redis.get(`expiredToken:${accessToken}`)
+    if (expiredToken) {
+      return next()
     }
+
     const user = await UserModel.findById(decoded.userId)
 
     if (!user) {

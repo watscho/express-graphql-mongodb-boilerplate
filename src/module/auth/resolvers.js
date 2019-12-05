@@ -92,10 +92,14 @@ const signUp = {
 const logout = {
   name: 'logout',
   type: 'Succeed!',
-  resolve: async ({ context: { accessToken } }) => {
+  resolve: async ({ context: { user, accessToken } }) => {
     try {
-      await redis.rpush('expiredTokens', accessToken)
-      redis.expire('expiredTokens', process.env.REDIS_EXPIRE)
+      await redis.set(
+        `expiredToken:${accessToken}`,
+        user._id,
+        'EX',
+        process.env.REDIS_EXPIRE
+      )
 
       return { succeed: true }
     } catch (error) {
