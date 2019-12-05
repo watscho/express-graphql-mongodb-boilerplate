@@ -18,9 +18,8 @@ const authentication = async (req, res, next) => {
     if (!decoded) {
       return next()
     }
-
-    const expiredToken = await redis.get(`expiredToken:${accessToken}`)
-    if (expiredToken) {
+    const isExpired = await redis.get(`expiredToken:${accessToken}`)
+    if (isExpired) {
       return next()
     }
 
