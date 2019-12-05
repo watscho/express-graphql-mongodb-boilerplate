@@ -8,23 +8,22 @@ const authentication = async (req, res, next) => {
     const {
       headers: { authorization }
     } = req
-
     if (!authorization) {
       return next()
     }
+
     const accessToken = authorization.split(' ')[1]
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET)
-
     if (!decoded) {
       return next()
     }
+
     const isExpired = await redis.get(`expiredToken:${accessToken}`)
     if (isExpired) {
       return next()
     }
 
     const user = await UserModel.findById(decoded.userId)
-
     if (!user) {
       return next()
     }
