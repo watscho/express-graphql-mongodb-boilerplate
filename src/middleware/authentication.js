@@ -13,6 +13,7 @@ const authentication = async (req, res, next) => {
     }
 
     const accessToken = authorization.split(' ')[1]
+
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET)
     if (!decoded) {
       return next()
