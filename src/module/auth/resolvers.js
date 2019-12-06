@@ -98,7 +98,7 @@ const logout = {
         `expiredToken:${accessToken}`,
         user._id,
         'EX',
-        process.env.REDIS_EXPIRE
+        process.env.REDIS_TOKEN_EXPIRY
       )
 
       return { succeed: true }
