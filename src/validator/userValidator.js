@@ -21,6 +21,44 @@ class UserValidator {
     return resolve(source, args, context, info)
   }
 
+  async resetPassword (resolve, source, args, context, info) {
+    args.email = validator.trim(args.email)
+
+    args.email = validator.normalizeEmail(args.email, {
+      all_lowercase: true,
+      gmail_lowercase: true,
+      gmail_remove_dots: true,
+      gmail_remove_subaddress: true,
+      gmail_convert_googlemaildotcom: true,
+      outlookdotcom_remove_subaddress: true,
+      yahoo_lowercase: true,
+      yahoo_remove_subaddress: true,
+      icloud_lowercase: true,
+      icloud_remove_subaddress: true
+    })
+
+    return resolve(source, args, context, info)
+  }
+
+  async signIn (resolve, source, args, context, info) {
+    args.email = validator.trim(args.email)
+
+    args.email = validator.normalizeEmail(args.email, {
+      all_lowercase: true,
+      gmail_lowercase: true,
+      gmail_remove_dots: true,
+      gmail_remove_subaddress: true,
+      gmail_convert_googlemaildotcom: true,
+      outlookdotcom_remove_subaddress: true,
+      yahoo_lowercase: true,
+      yahoo_remove_subaddress: true,
+      icloud_lowercase: true,
+      icloud_remove_subaddress: true
+    })
+
+    return resolve(source, args, context, info)
+  }
+
   async signUp (resolve, source, args, context, info) {
     args.email = validator.trim(args.email)
 

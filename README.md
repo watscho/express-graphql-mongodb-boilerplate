@@ -231,7 +231,18 @@ mutation updateUser($email: String!, $firstName: String!, $lastName: String!) {
 
 mutation switchLocale($locale: Locale!) {
   switchLocale(locale: $locale) {
+    _id
+    email
+    firstName
+    lastName
     locale
+    account {
+      verification {
+        verified
+      }
+    }
+    updatedAt
+    createdAt
   }
 }
 ```

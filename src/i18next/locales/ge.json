@@ -1,7 +1,6 @@
 {
   "verification": "ვერიფიკაცია",
-  "confirm": "დადასტურება",
-  "poweredBy": "Powered by",
   "resetPassword": "პაროლის აღდგენა",
+  "followUrl": "გაჰყევით ბმულს",
   "yourAccountHasBeenSuccessfullyVerified": "თქვენ წარმატებით გაიარეთ ვერიფიკაცია"
 }
