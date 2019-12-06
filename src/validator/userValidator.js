@@ -1,5 +1,6 @@
 const validator = require('validator')
 const { selfish } = require('selfish-proxy')
+
 class UserValidator {
   constructor () {
     this.normalizeEmailOptions = {
