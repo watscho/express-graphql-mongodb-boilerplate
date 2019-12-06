@@ -4,7 +4,9 @@ require('@app/graphql/types')
 
 const { isAuth, isGuest, isUnverfied /* isVerified */ } = require('@app/middleware')
 const {
+  signInValidator,
   signUpValidator,
+  resetPasswordValidator,
   newPasswordValidator,
   changePasswordValidator,
   updateUserValidator
@@ -16,12 +18,12 @@ schemaComposer.Query.addFields({
 })
 
 schemaComposer.Mutation.addFields({
-  signIn: UserTC.getResolver('signIn', [isGuest]),
+  signIn: UserTC.getResolver('signIn', [isGuest, signInValidator]),
   signUp: UserTC.getResolver('signUp', [isGuest, signUpValidator]),
   logout: UserTC.getResolver('logout', [isAuth]),
   verifyRequest: UserTC.getResolver('verifyRequest', [isAuth, isUnverfied]),
   verify: UserTC.getResolver('verify'),
-  resetPassword: UserTC.getResolver('resetPassword', [isGuest]),
+  resetPassword: UserTC.getResolver('resetPassword', [isGuest, resetPasswordValidator]),
   newPassword: UserTC.getResolver('newPassword', [
     isGuest,
     newPasswordValidator
