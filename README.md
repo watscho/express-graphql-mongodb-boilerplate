@@ -1,11 +1,11 @@
 # [express-graphql-mongodb-boilerplate](https://github.com/watscho/express-graphql-mongodb-boilerplate)
 
+## Authentication from scratch
+
 [![](https://img.shields.io/badge/author-@watscho-blue.svg)](https://www.linkedin.com/in/watscho) 
 [![](https://img.shields.io/github/stars/watscho/express-graphql-mongodb-boilerplate?style=social)](https://github.com/watscho/express-graphql-mongodb-boilerplate/stargazers)
 [![](https://api.codacy.com/project/badge/Grade/0b49c33797cc49b98502e249f27326de)](https://www.codacy.com/manual/watscho/express-graphql-mongodb-boilerplate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=watscho/express-graphql-mongodb-boilerplate&amp;utm_campaign=Badge_Grade) 
 [![GitHub license](https://img.shields.io/github/license/watscho/express-graphql-mongodb-boilerplate)](https://github.com/watscho/express-graphql-mongodb-boilerplate/blob/master/LICENSE)
-
-## Authentication from scratch
 
 ### Sign In, Sign Up, Reset Password, Change Password, Update User
 
