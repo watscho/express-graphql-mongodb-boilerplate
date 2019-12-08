@@ -145,6 +145,8 @@ npm run lint:write # with prefix --fix
 └─ package.json
 ```
 
+**Note:** To continue development, you should learn about [graphql-compose](https://graphql-compose.github.io) - this is the library that I use to write the API, you can read about it at the link: [docs](https://graphql-compose.github.io/docs/intro/quick-start.html)
+
 ## Queries
 
 ```graphql
@@ -165,8 +167,6 @@ query user {
   }
 }
 ```
-
-**Note:** To continue development, you should learn about [graphql-compose](https://graphql-compose.github.io) - this is the library that I use to write the API, you can read about it at the link: [docs](https://graphql-compose.github.io/docs/intro/quick-start.html)
 
 ## Mutations
 
