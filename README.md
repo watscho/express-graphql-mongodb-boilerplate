@@ -84,7 +84,7 @@ npm run lint
 npm run lint:write # with prefix --fix
 ```
 
-### Project structure
+### API Structure
 
 ```bash
 ├─ src
@@ -138,6 +138,7 @@ npm run lint:write # with prefix --fix
 ├─ .gitignore
 ├─ Dockerfile
 ├─ Dockerfile.dev
+├─ LICENSE
 ├─ README.md
 ├─ docker-compose.dev.yml
 ├─ docker-compose.yml
