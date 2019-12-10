@@ -4,7 +4,7 @@ const { mail } = require('@app/service/nodemailer')
 
 class UserMail {
   verifyRequest (user, token) {
-    return mail.send({
+    mail.send({
       template: 'verify-request',
       message: {
         from: '"Verification request" <no-replay@example.com>',
@@ -21,7 +21,7 @@ class UserMail {
   }
 
   verify (user) {
-    return mail.send({
+    mail.send({
       template: 'verify',
       message: {
         from: '"Verification" <no-replay@example.com>',
@@ -35,7 +35,7 @@ class UserMail {
   }
 
   resetPassword (user, token) {
-    return mail.send({
+    mail.send({
       template: 'reset-password',
       message: {
         from: '"Reset Password" <no-replay@example.com>',
