@@ -15,9 +15,7 @@ class UserMail {
         locale: user.locale,
         token
       }
-    }).catch(error => {
-      winston.error(error)
-    })
+    }).catch(error => winston.error(error))
   }
 
   verify (user) {
@@ -29,9 +27,7 @@ class UserMail {
         subject: 'Verification'
       },
       locals: { locale: user.locale }
-    }).catch(error => {
-      winston.error(error)
-    })
+    }).catch(error => winston.error(error))
   }
 
   resetPassword (user, token) {
@@ -46,9 +42,7 @@ class UserMail {
         locale: user.locale,
         token
       }
-    }).catch(error => {
-      winston.error(error)
-    })
+    }).catch(error => winston.error(error))
   }
 
   static getInstance () {
