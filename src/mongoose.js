@@ -6,12 +6,8 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-  .catch(error => {
-    winston.error(error)
-  })
+  .catch(error => winston.error(error))
 
-mongoose.connection.on('open', () => {
-  winston.info('MongoDB connected')
-})
+mongoose.connection.on('open', () => winston.info('MongoDB connected'))
 
 module.exports = mongoose

@@ -6,18 +6,11 @@ const client = new Redis({
   port: process.env.REDIS_PORT
 })
 
-let wasError = false
-
 client.on('error', error => {
-  if (!wasError) {
-    winston.error(error)
-    wasError = true
-  }
+  winston.error(error)
+  client.quit()
 })
 
-client.on('connect', () => {
-  winston.info('Redis client connected')
-  wasError = false
-})
+client.on('connect', () => winston.info('Redis client connected'))
 
 module.exports = client
