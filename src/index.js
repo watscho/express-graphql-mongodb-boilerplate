@@ -16,13 +16,13 @@ const app = express()
 
 app.use(
   '/graphql',
+  bodyParser.json(),
   cors({
     origin: process.env.CLIENT_URL,
     optionsSuccessStatus: 200
   }),
   i18nextMiddleware.handle(i18next),
   authentication,
-  bodyParser.json(),
   graphql
 )
 
