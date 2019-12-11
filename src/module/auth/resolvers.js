@@ -116,6 +116,7 @@ const verifyRequest = {
       const token = await verifyRequestService(user)
 
       verifyRequestMail(user, token)
+
       return { succeed: true }
     } catch (error) {
       return Promise.reject(error)
@@ -133,7 +134,9 @@ const verify = {
         'account.verification.token': token
       })
       if (!user) {
-        return Promise.reject(new Error('Access Token is not valid or has expired.'))
+        return Promise.reject(
+          new Error('Access Token is not valid or has expired.')
+        )
       }
 
       user.set({
@@ -207,7 +210,9 @@ const newPassword = {
         'account.resetPassword.token': token
       })
       if (!user) {
-        return Promise.reject(new Error('Access Token is not valid or has expired.'))
+        return Promise.reject(
+          new Error('Access Token is not valid or has expired.')
+        )
       }
 
       const hash = bcrypt.hashSync(newPassword, 10)
