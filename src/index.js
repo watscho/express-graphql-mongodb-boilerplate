@@ -21,7 +21,6 @@ app.use(
   }),
   i18nextMiddleware.handle(i18next),
   authentication,
-  bodyParser.json(),
   graphql
 )
 
