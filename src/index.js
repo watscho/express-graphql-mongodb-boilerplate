@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const cors = require('cors')
 
 require('module-alias/register')
@@ -15,6 +16,7 @@ const app = express()
 
 app.use(
   '/graphql',
+  bodyParser.json(),
   cors({
     origin: process.env.CLIENT_URL,
     optionsSuccessStatus: 200
