@@ -1,6 +1,6 @@
 {
   "name": "express-graphql-mongodb-boilerplate",
-  "version": "7.3.4",
+  "version": "7.3.5",
   "description": "A boilerplate for Node.js applications / Authentication from scratch - express, graphql - (graphql compose), mongodb.",
   "main": "./src",
   "repository": {
@@ -26,8 +26,8 @@
   "scripts": {
     "start": "NODE_PATH=./src node ./src",
     "start:local": "NODE_PATH=./src nodemon ./src",
-    "lint": "eslint --debug src/",
-    "lint:write": "eslint --debug src/ --fix"
+    "lint": "eslint --debug ./src",
+    "lint:write": "eslint --debug ./src --fix"
   },
   "_moduleAliases": {
     "@app": "./src"
