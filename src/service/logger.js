@@ -9,6 +9,6 @@ winston.configure({
   ),
   transports: [
     new winston.transports
-      .File({ filename: process.env.API_LOG_FILE })
+      .File({ filename: process.env.API_LOG_FILENAME })
   ]
 })
