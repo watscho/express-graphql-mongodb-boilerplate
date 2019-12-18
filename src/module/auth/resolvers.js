@@ -15,7 +15,7 @@ const UserModel = require('@app/module/auth/user')
 const user = {
   name: 'user',
   type: 'User!',
-  resolve: async ({ context: { user } }) => user
+  resolve: ({ context: { user } }) => user
 }
 
 const signIn = {
