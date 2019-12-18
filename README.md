@@ -15,7 +15,6 @@
 | Package                    | Description                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | bcryptjs                   | Optimized bcrypt in JavaScript with zero dependencies. Compatible to the C++ bcrypt binding on node.js and also working in the browser.                                                                                                                                                                                                                               |
-| body-parser                | Node.js body parsing middleware.                                                                                                                                                                                                                                                                                                                                      |
 | cors                       | CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.                                                                                                                                                                                                                                            |
 | crypto-random-string       | Generate a cryptographically strong random string                                                                                                                                                                                                                                                                                                                     |
 | dotenv                     | Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.                                                                                                                                                     |
@@ -66,8 +65,8 @@ nodemon does not require any additional changes to your code or method of develo
 ### API Start
 
 ```bash
-npm run start
-npm run start:local # with nodemon
+yarn start
+yarn start:local # with nodemon
 ```
 
 ### Docker compose
@@ -80,8 +79,8 @@ docker-compose -f docker-compose.dev.yml up --build # with nodemon
 ### ESlint Start
 
 ```bash
-npm run lint
-npm run lint:write # with prefix --fix
+yarn lint
+yarn lint:write # with prefix --fix
 ```
 
 ### API Structure
