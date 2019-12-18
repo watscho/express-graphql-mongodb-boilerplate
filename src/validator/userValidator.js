@@ -22,24 +22,36 @@ class UserValidator {
   }
 
   async resetPassword (resolve, source, args, context, info) {
-    args.email = validator.trim(args.email)
-    args.email = validator.normalizeEmail(args.email)
+    let { email } = args
+
+    email = validator.normalizeEmail(email)
+    email = validator.trim(email)
+
+    Object.assign(args, { email })
 
     return resolve(source, args, context, info)
   }
 
   async signIn (resolve, source, args, context, info) {
-    args.email = validator.trim(args.email)
-    args.email = validator.normalizeEmail(args.email)
+    let { email } = args
+
+    email = validator.normalizeEmail(email)
+    email = validator.trim(email)
+
+    Object.assign(args, { email })
 
     return resolve(source, args, context, info)
   }
 
   async signUp (resolve, source, args, context, info) {
-    args.email = validator.trim(args.email)
-    args.email = validator.normalizeEmail(args.email)
+    let { email } = args
 
-    const { email, password } = args
+    email = validator.normalizeEmail(email)
+    email = validator.trim(email)
+
+    Object.assign(args, { email })
+
+    const { password } = args
 
     if (!validator.isEmail(email, { allow_utf8_local_part: false })) {
       return Promise.reject(new Error('Error: email'))
@@ -53,10 +65,14 @@ class UserValidator {
   }
 
   async updateUser (resolve, source, args, context, info) {
-    args.email = validator.trim(args.email)
-    args.email = validator.normalizeEmail(args.email)
+    let { email } = args
 
-    const { email, firstName, lastName } = args
+    email = validator.normalizeEmail(email)
+    email = validator.trim(email)
+
+    Object.assign(args, { email })
+
+    const { firstName, lastName } = args
 
     if (!validator.isEmail(email, { allow_utf8_local_part: false })) {
       return Promise.reject(new Error('Error: email'))
