@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 const mail = new Email({
   views: {
-    root: path.join(process.env.NODE_PATH, 'views', 'template'),
+    root: path.join(process.env.NODE_PATH, 'view', 'template'),
     locals: {
       i18n: i18next,
       clientUrl: process.env.CLIENT_URL

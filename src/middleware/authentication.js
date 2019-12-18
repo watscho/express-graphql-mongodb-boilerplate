@@ -34,7 +34,7 @@ const authentication = async (req, res, next) => {
 
     return next()
   } catch (error) {
-    return Promise.reject(error)
+    return next()
   }
 }
 
