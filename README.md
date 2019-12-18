@@ -255,6 +255,8 @@ mutation switchLocale($locale: Locale!) {
 
 **Note:** For any question [issues](https://github.com/watscho/express-graphql-mongodb-boilerplate/issues)
 
+## Also [express-mongodb-rest-api-boilerplate](https://github.com/watscho/express-mongodb-rest-api-boilerplate) - REST-API Boilerplate
+
 ## License
 
 This project is an open-source with an [MIT License](https://github.com/watscho/express-graphql-mongodb-boilerplate/blob/master/LICENSE)
