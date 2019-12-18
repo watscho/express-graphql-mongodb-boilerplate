@@ -1,5 +1,7 @@
 # [express-graphql-mongodb-boilerplate](https://github.com/watscho/express-graphql-mongodb-boilerplate)
 
+**Also [express-mongodb-rest-api-boilerplate](https://github.com/watscho/express-mongodb-rest-api-boilerplate) - REST-API Boilerplate**
+
 [![](https://img.shields.io/badge/author-@watscho-blue.svg)](https://www.linkedin.com/in/watscho) 
 [![](https://api.codacy.com/project/badge/Grade/0b49c33797cc49b98502e249f27326de)](https://www.codacy.com/manual/watscho/express-graphql-mongodb-boilerplate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=watscho/express-graphql-mongodb-boilerplate&amp;utm_campaign=Badge_Grade) 
 [![GitHub license](https://img.shields.io/github/license/watscho/express-graphql-mongodb-boilerplate)](https://github.com/watscho/express-graphql-mongodb-boilerplate/blob/master/LICENSE)
@@ -254,8 +256,6 @@ mutation switchLocale($locale: Locale!) {
 ```
 
 **Note:** For any question [issues](https://github.com/watscho/express-graphql-mongodb-boilerplate/issues)
-
-## Also [express-mongodb-rest-api-boilerplate](https://github.com/watscho/express-mongodb-rest-api-boilerplate) - REST-API Boilerplate
 
 ## License
 
