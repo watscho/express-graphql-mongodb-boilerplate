@@ -1,6 +1,6 @@
 {
   "name": "express-graphql-mongodb-boilerplate",
-  "version": "7.3.7",
+  "version": "7.3.8",
   "description": "A boilerplate for Node.js applications / Authentication from scratch - express, graphql - (graphql compose), mongodb.",
   "main": "./src",
   "repository": {
