@@ -119,7 +119,7 @@ yarn lint:write # with prefix --fix
 │  ├─ validator
 │  │  ├─ index.js
 │  │  └─ userValidator.js
-│  ├─ views
+│  ├─ view
 │  │  └─ template
 │  │     ├─ reset-password
 │  │     │  └─ html.ejs
