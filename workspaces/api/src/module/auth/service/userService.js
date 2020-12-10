@@ -2,7 +2,7 @@ const crypto = require('crypto-random-string')
 const moment = require('moment')
 
 class UserService {
-  async verifyRequest (user) {
+  async verifyRequest(user) {
     const token = crypto({ length: 48, type: 'url-safe' })
     const expiresIn = moment().add(7, 'days')
 
@@ -20,7 +20,7 @@ class UserService {
     return token
   }
 
-  static getInstance () {
+  static getInstance() {
     if (!this.instance) {
       this.instance = new this()
     }

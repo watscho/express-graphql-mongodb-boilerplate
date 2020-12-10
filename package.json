@@ -1,60 +1,14 @@
 {
-  "name": "express-graphql-mongodb-boilerplate",
-  "version": "7.3.9",
-  "description": "A boilerplate for Node.js apps / GraphQL-API / Authentication from scratch - express, graphql - (graphql compose), mongodb (mongoose).",
-  "main": "./src",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/watscho/express-graphql-mongodb-boilerplate"
-  },
-  "bugs": "https://github.com/watscho/express-graphql-mongodb-boilerplate/issues",
-  "keywords": [
-    "express",
-    "graphql",
-    "graphql-compose",
-    "mongodb",
-    "mongoose",
-    "node",
-    "nodejs",
-    "authentication",
-    "scratch",
-    "boilerplate",
-    "authorization",
-    "docker",
-    "api"
-  ],
-  "scripts": {
-    "start": "NODE_PATH=./src node ./src",
-    "start:local": "NODE_PATH=./src nodemon ./src",
-    "lint": "eslint --debug ./src",
-    "lint:write": "eslint --debug ./src --fix"
-  },
-  "_moduleAliases": {
-    "@app": "./src"
-  },
-  "author": "Watscho Aiwasov",
+  "version": "8.0.0",
   "license": "MIT",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "crypto-random-string": "^3.0.1",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.0.1",
-    "email-templates": "^6.1.1",
-    "express": "^5.0.0-alpha.7",
-    "express-graphql": "^0.9.0",
-    "graphql": "^14.5.8",
-    "graphql-compose": "^7.8.0",
-    "graphql-compose-mongoose": "^7.3.0",
-    "i18next": "^19.0.2",
-    "i18next-express-middleware": "^1.9.1",
-    "ioredis": "^4.14.1",
-    "jsonwebtoken": "^8.5.1",
-    "module-alias": "^2.2.2",
-    "moment": "^2.24.0",
-    "mongoose": "^5.8.3",
-    "nodemailer": "^6.4.2",
-    "validator": "^12.1.0",
-    "winston": "^3.2.1"
+  "private": true,
+  "scripts": {
+    "update:version": "lerna version --no-push"
+  },
+  "workspaces": [
+    "workspaces/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
   }
 }

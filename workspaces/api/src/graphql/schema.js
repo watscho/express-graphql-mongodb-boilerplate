@@ -24,14 +24,8 @@ schemaComposer.Mutation.addFields({
   verifyRequest: UserTC.getResolver('verifyRequest', [isAuth, isUnverfied]),
   verify: UserTC.getResolver('verify'),
   resetPassword: UserTC.getResolver('resetPassword', [isGuest, resetPasswordValidator]),
-  newPassword: UserTC.getResolver('newPassword', [
-    isGuest,
-    newPasswordValidator
-  ]),
-  changePassword: UserTC.getResolver('changePassword', [
-    isAuth,
-    changePasswordValidator
-  ]),
+  newPassword: UserTC.getResolver('newPassword', [isGuest, newPasswordValidator]),
+  changePassword: UserTC.getResolver('changePassword', [isAuth, changePasswordValidator]),
   updateUser: UserTC.getResolver('updateUser', [isAuth, updateUserValidator]),
   switchLocale: UserTC.getResolver('switchLocale', [isAuth])
 })

@@ -5,7 +5,9 @@ const UserModel = require('@app/module/auth/user')
 
 const authentication = async (req, res, next) => {
   try {
-    const { headers: { authorization } } = req
+    const {
+      headers: { authorization }
+    } = req
     if (!authorization) {
       return next()
     }
