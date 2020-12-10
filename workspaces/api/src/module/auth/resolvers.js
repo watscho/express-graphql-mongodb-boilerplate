@@ -4,11 +4,7 @@ const crypto = require('crypto-random-string')
 const moment = require('moment')
 
 const redis = require('@app/redis')
-const {
-  verifyRequestMail,
-  verifyMail,
-  resetPasswordMail
-} = require('@app/module/auth/mail')
+const { verifyRequestMail, verifyMail, resetPasswordMail } = require('@app/module/auth/mail')
 const { verifyRequestService } = require('@app/module/auth/service')
 const UserModel = require('@app/module/auth/user')
 
@@ -37,11 +33,9 @@ const signIn = {
         return Promise.reject(new Error('Password is incorrect.'))
       }
 
-      const accessToken = jwt.sign(
-        { userId: user._id },
-        process.env.JWT_SECRET,
-        { expiresIn: process.env.JWT_EXPIRATION }
-      )
+      const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRATION
+      })
 
       return { accessToken }
     } catch (error) {
@@ -72,11 +66,9 @@ const signUp = {
         locale: i18n.language
       }).save()
 
-      const accessToken = jwt.sign(
-        { userId: user._id },
-        process.env.JWT_SECRET,
-        { expiresIn: process.env.JWT_EXPIRATION }
-      )
+      const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRATION
+      })
 
       const token = await verifyRequestService(user)
 
@@ -94,12 +86,7 @@ const logout = {
   type: 'Succeed!',
   resolve: async ({ context: { user, accessToken } }) => {
     try {
-      await redis.set(
-        `expiredToken:${accessToken}`,
-        user._id,
-        'EX',
-        process.env.REDIS_TOKEN_EXPIRY
-      )
+      await redis.set(`expiredToken:${accessToken}`, user._id, 'EX', process.env.REDIS_TOKEN_EXPIRY)
 
       return { succeed: true }
     } catch (error) {
@@ -134,9 +121,7 @@ const verify = {
         'account.verification.token': token
       })
       if (!user) {
-        return Promise.reject(
-          new Error('Access Token is not valid or has expired.')
-        )
+        return Promise.reject(new Error('Access Token is not valid or has expired.'))
       }
 
       user.set({
@@ -151,11 +136,9 @@ const verify = {
 
       await user.save()
 
-      const accessToken = jwt.sign(
-        { userId: user._id },
-        process.env.JWT_SECRET,
-        { expiresIn: process.env.JWT_EXPIRATION }
-      )
+      const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRATION
+      })
 
       verifyMail(user)
 
@@ -210,9 +193,7 @@ const newPassword = {
         'account.resetPassword.token': token
       })
       if (!user) {
-        return Promise.reject(
-          new Error('Access Token is not valid or has expired.')
-        )
+        return Promise.reject(new Error('Access Token is not valid or has expired.'))
       }
 
       const hash = bcrypt.hashSync(newPassword, 10)
@@ -229,11 +210,9 @@ const newPassword = {
 
       await user.save()
 
-      const accessToken = jwt.sign(
-        { userId: user._id },
-        process.env.JWT_SECRET,
-        { expiresIn: process.env.JWT_EXPIRATION }
-      )
+      const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRATION
+      })
 
       return { accessToken }
     } catch (error) {
@@ -246,10 +225,7 @@ const changePassword = {
   name: 'changePassword',
   type: 'Succeed!',
   args: { currentPassword: 'String!', newPassword: 'String!' },
-  resolve: async ({
-    args: { currentPassword, newPassword },
-    context: { user }
-  }) => {
+  resolve: async ({ args: { currentPassword, newPassword }, context: { user } }) => {
     try {
       const comparePassword = await user.comparePassword(currentPassword)
       if (!comparePassword) {
@@ -275,7 +251,11 @@ const updateUser = {
   args: { email: 'String!', firstName: 'String!', lastName: 'String!' },
   resolve: async ({ args: { email, firstName, lastName }, context: { user } }) => {
     try {
-      let { account: { verification: { verified } } } = user,
+      let {
+          account: {
+            verification: { verified }
+          }
+        } = user,
         verifyRequest = false
 
       if (user.email !== email) {

@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 
-require('module-alias/register')
+require('module-alias').addAlias('@app', `${__dirname}/`)
 require('dotenv').config()
 
 require('@app/service/logger')
@@ -26,8 +26,7 @@ app.use(
 )
 
 app.use('*', (req, res) => {
-  res.status(404)
-    .send('404 Not Found')
+  res.status(404).send('404 Not Found')
 })
 
 app.listen(process.env.APP_PORT)
