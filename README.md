@@ -2,8 +2,8 @@
 
 **Also [express-mongodb-rest-api-boilerplate](https://github.com/watscho/express-mongodb-rest-api-boilerplate) - REST-API Boilerplate**
 
-[![](https://img.shields.io/badge/author-@watscho-blue.svg)](https://www.linkedin.com/in/watscho) 
-[![](https://api.codacy.com/project/badge/Grade/0b49c33797cc49b98502e249f27326de)](https://www.codacy.com/manual/watscho/express-graphql-mongodb-boilerplate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=watscho/express-graphql-mongodb-boilerplate&amp;utm_campaign=Badge_Grade) 
+[![](https://img.shields.io/badge/author-@watscho-blue.svg)](https://www.linkedin.com/in/watscho)
+[![](https://api.codacy.com/project/badge/Grade/0b49c33797cc49b98502e249f27326de)](https://www.codacy.com/manual/watscho/express-graphql-mongodb-boilerplate?utm_source=github.com&utm_medium=referral&utm_content=watscho/express-graphql-mongodb-boilerplate&utm_campaign=Badge_Grade)
 [![GitHub license](https://img.shields.io/github/license/watscho/express-graphql-mongodb-boilerplate)](https://github.com/watscho/express-graphql-mongodb-boilerplate/blob/master/LICENSE)
 
 ## Authentication from scratch
@@ -50,6 +50,14 @@ _Linux:_
 
 ```bash
 sudo apt-get install redis-server
+```
+
+### First, we use [yarn](https://yarnpkg.com/) - [workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) with [lerna](https://www.npmjs.com/package/lerna)
+
+[Introducing Yarn Workspaces](https://classic.yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
+
+```bash
+cd workspaces/api
 ```
 
 ### COPY .env.example to .env
@@ -215,7 +223,7 @@ mutation newPassword($token: String!, $newPassword: String!) {
 }
 
 mutation changePassword($currentPassword: String!, $newPassword: String!) {
-  changePassword(currentPassword: $currentPassword, newPassword: $newPassword){
+  changePassword(currentPassword: $currentPassword, newPassword: $newPassword) {
     succeed
   }
 }
