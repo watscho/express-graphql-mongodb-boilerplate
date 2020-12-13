@@ -1,7 +1,7 @@
 const validator = require('validator')
 
-class UserValidator {
-  async changePassword(resolve, source, args, context, info) {
+const userValidator = {
+  changePassword: async (resolve, source, args, context, info) => {
     const { newPassword } = args
 
     if (!validator.isLength(newPassword, { min: 6 })) {
@@ -9,9 +9,9 @@ class UserValidator {
     }
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async newPassword(resolve, source, args, context, info) {
+  newPassword: async (resolve, source, args, context, info) => {
     const { newPassword } = args
 
     if (!validator.isLength(newPassword, { min: 6 })) {
@@ -19,9 +19,9 @@ class UserValidator {
     }
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async resetPassword(resolve, source, args, context, info) {
+  resetPassword: async (resolve, source, args, context, info) => {
     let { email } = args
 
     email = validator.normalizeEmail(email)
@@ -30,9 +30,9 @@ class UserValidator {
     Object.assign(args, { email })
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async signIn(resolve, source, args, context, info) {
+  signIn: async (resolve, source, args, context, info) => {
     let { email } = args
 
     email = validator.normalizeEmail(email)
@@ -41,9 +41,9 @@ class UserValidator {
     Object.assign(args, { email })
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async signUp(resolve, source, args, context, info) {
+  signUp: async (resolve, source, args, context, info) => {
     let { email } = args
 
     email = validator.normalizeEmail(email)
@@ -62,9 +62,9 @@ class UserValidator {
     }
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async updateUser(resolve, source, args, context, info) {
+  updateUser: async (resolve, source, args, context, info) => {
     let { email } = args
 
     email = validator.normalizeEmail(email)
@@ -86,13 +86,6 @@ class UserValidator {
 
     return resolve(source, args, context, info)
   }
-
-  static getInstance() {
-    if (!this.instance) {
-      this.instance = new this()
-    }
-    return this.instance
-  }
 }
 
-module.exports = UserValidator
+module.exports = { userValidator }

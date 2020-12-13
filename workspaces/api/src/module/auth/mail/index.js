@@ -1,7 +1,3 @@
-const UserMail = require('@app/module/auth/mail/userMail').getInstance()
+const { userMail } = require('@app/module/auth/mail/userMail')
 
-module.exports = {
-  resetPasswordMail: UserMail.resetPassword,
-  verifyRequestMail: UserMail.verifyRequest,
-  verifyMail: UserMail.verify
-}
+module.exports = { userMail }

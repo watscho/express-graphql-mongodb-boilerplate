@@ -1,6 +1,6 @@
 {
   "name": "express-graphql-mongodb-boilerplate",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "description": "A boilerplate for Node.js apps / GraphQL-API / Authentication from scratch - express, graphql - (graphql compose), mongodb (mongoose).",
   "main": "./src",
   "repository": {

@@ -4,8 +4,8 @@ const crypto = require('crypto-random-string')
 const moment = require('moment')
 
 const redis = require('@app/redis')
-const { verifyRequestMail, verifyMail, resetPasswordMail } = require('@app/module/auth/mail')
-const { verifyRequestService } = require('@app/module/auth/service')
+const { userMail } = require('@app/module/auth/mail')
+const { userService } = require('@app/module/auth/service')
 const UserModel = require('@app/module/auth/user')
 
 const user = {
@@ -70,9 +70,9 @@ const signUp = {
         expiresIn: process.env.JWT_EXPIRATION
       })
 
-      const token = await verifyRequestService(user)
+      const token = await userService.verifyRequest(user)
 
-      verifyRequestMail(user, token)
+      userMail.verifyRequest(user, token)
 
       return { accessToken }
     } catch (error) {
@@ -100,9 +100,9 @@ const verifyRequest = {
   type: 'Succeed!',
   resolve: async ({ context: { user } }) => {
     try {
-      const token = await verifyRequestService(user)
+      const token = await userService.verifyRequest(user)
 
-      verifyRequestMail(user, token)
+      userMail.verifyRequest(user, token)
 
       return { succeed: true }
     } catch (error) {
@@ -140,7 +140,7 @@ const verify = {
         expiresIn: process.env.JWT_EXPIRATION
       })
 
-      verifyMail(user)
+      userMail.verify(user)
 
       return { accessToken }
     } catch (error) {
@@ -174,7 +174,7 @@ const resetPassword = {
 
       await user.save()
 
-      resetPasswordMail(user, token)
+      userMail.resetPassword(user, token)
 
       return { succeed: true }
     } catch (error) {
@@ -281,9 +281,9 @@ const updateUser = {
       await user.save()
 
       if (verifyRequest) {
-        const token = await verifyRequestService(user)
+        const token = await userService.verifyRequest(user)
 
-        verifyRequestMail(user, token)
+        userMail.verifyRequest(user, token)
       }
 
       return user
