@@ -1,5 +1,5 @@
-class AuthMiddleware {
-  async isAuth(resolve, source, args, context, info) {
+const authMiddleware = {
+  isAuth: async (resolve, source, args, context, info) => {
     const { user } = context
 
     if (!user) {
@@ -7,9 +7,9 @@ class AuthMiddleware {
     }
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async isGuest(resolve, source, args, context, info) {
+  isGuest: async (resolve, source, args, context, info) => {
     const { user } = context
 
     if (user) {
@@ -17,9 +17,9 @@ class AuthMiddleware {
     }
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async isVerified(resolve, source, args, context, info) {
+  isVerified: async (resolve, source, args, context, info) => {
     const {
       user: {
         account: {
@@ -33,9 +33,9 @@ class AuthMiddleware {
     }
 
     return resolve(source, args, context, info)
-  }
+  },
 
-  async isUnverfied(resolve, source, args, context, info) {
+  isUnverfied: async (resolve, source, args, context, info) => {
     const {
       user: {
         account: {
@@ -50,13 +50,6 @@ class AuthMiddleware {
 
     return resolve(source, args, context, info)
   }
-
-  static getInstance() {
-    if (!this.instance) {
-      this.instance = new this()
-    }
-    return this.instance
-  }
 }
 
-module.exports = AuthMiddleware
+module.exports = { authMiddleware }

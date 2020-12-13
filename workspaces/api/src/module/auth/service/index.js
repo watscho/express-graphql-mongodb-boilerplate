@@ -1,5 +1,3 @@
-const UserService = require('@app/module/auth/service/userService').getInstance()
+const { userService } = require('@app/module/auth/service/userService')
 
-module.exports = {
-  verifyRequestService: UserService.verifyRequest
-}
+module.exports = { userService }

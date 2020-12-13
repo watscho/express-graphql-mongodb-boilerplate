@@ -1,10 +1,3 @@
-const UserValidator = require('@app/validator/userValidator').getInstance()
+const { userValidator } = require('@app/validator/userValidator')
 
-module.exports = {
-  signInValidator: UserValidator.signIn,
-  signUpValidator: UserValidator.signUp,
-  resetPasswordValidator: UserValidator.resetPassword,
-  newPasswordValidator: UserValidator.newPassword,
-  changePasswordValidator: UserValidator.changePassword,
-  updateUserValidator: UserValidator.updateUser
-}
+module.exports = { userValidator }
