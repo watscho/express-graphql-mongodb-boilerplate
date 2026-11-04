@@ -1,6 +1,6 @@
 {
   "name": "express-graphql-mongodb-boilerplate",
-  "version": "10.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Domain-based GraphQL API with Express, TypeScript, MongoDB transactions, Redis, JWT, owned media and encrypted transactional email outbox.",
   "license": "MIT",

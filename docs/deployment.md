@@ -83,7 +83,7 @@ After preparation:
 docker compose -f ops/compose.production.yml up -d api mail-worker media-cleanup
 ```
 
-`API_IMAGE` names the artifact; its default is `express-graphql-mongodb-api:10.0.0`. Prefer building/publishing once and deploying the same reviewed digest in a release pipeline. Building, publishing, and rolling out an image are distinct operations.
+`API_IMAGE` names the artifact; its default is `express-graphql-mongodb-api:2.0.0`. Prefer building/publishing once and deploying the same reviewed digest in a release pipeline. Building, publishing, and rolling out an image are distinct operations.
 
 The API binds its published port to host loopback (`127.0.0.1:8000` by default). Put a configured HTTPS reverse proxy in front. This example supports one published API instance; multiple API replicas need a load balancer/network configuration rather than reusing the same host port.
 
@@ -143,7 +143,7 @@ The operations service has no restart policy and no public port. Its default com
 
 ## Release and rollback limits
 
-Version `10.0.0` identifies this breaking GraphQL migration. Record local checks and environment acceptance separately using the [handoff guide](handoff.md); source version is not deployment evidence.
+Version `2.0.0` identifies this breaking GraphQL migration. Record local checks and environment acceptance separately using the [handoff guide](handoff.md); source version is not deployment evidence.
 
 A production rollout still needs its own authorized acceptance, real secrets/services, resource sizing, sender/domain configuration, backup/restore plan, and release ownership. Rolling back binaries does not undo token migrations, new uniqueness constraints, generated image formats, or already sent mail. Keep backups and choose rollback behavior before changing an existing deployment.
 

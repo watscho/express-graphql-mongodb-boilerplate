@@ -1,6 +1,6 @@
 # Migration from JavaScript v9
 
-Version 10 intentionally introduces a new GraphQL contract. Deploy clients and server as a coordinated breaking release. Keep the previous image/source and a restorable database/upload backup for rollback. The old and new servers must not write the same database during migration.
+Version 2.0.0 intentionally introduces a new GraphQL contract. Deploy clients and server as a coordinated breaking release. Keep the previous image/source and a restorable database/upload backup for rollback. The old and new servers must not write the same database during migration.
 
 ## Data migration
 
@@ -16,7 +16,7 @@ The migration is rerunnable, but it is not a cross-collection atomic database up
 
 ## Client contract changes
 
-| v9                                                  | v10                                                                            |
+| v9                                                  | v2.0                                                                           |
 | --------------------------------------------------- | ------------------------------------------------------------------------------ |
 | `user`                                              | `me`; public `id` replaces `_id`                                               |
 | `signIn(email,password)` / `signUp(email,password)` | `signIn(input:CredentialsInput!)` / `signUp(input:CredentialsInput!)`          |

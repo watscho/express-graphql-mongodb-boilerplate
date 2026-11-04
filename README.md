@@ -1,6 +1,6 @@
 # Express GraphQL MongoDB Boilerplate
 
-A domain-based TypeScript GraphQL API. Version 10 replaces the JavaScript/Lerna application with the architecture and application capabilities of `express-mongodb-rest-api-boilerplate`, adapted to GraphQL.
+A domain-based TypeScript GraphQL API. Version 2.0.0 replaces the JavaScript/Lerna application with the architecture and application capabilities of `express-mongodb-rest-api-boilerplate`, adapted to GraphQL.
 
 Node.js 26.13.0 · TypeScript 7 · Express 5 · GraphQL 17 · GraphQL Yoga 6 · Mongoose 9 · Redis · Zod 4 · Yarn 4.
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## 10.0.0 — 2026-11-04
+## 2.0.0 — 2026-11-04
 
 Breaking migration from the JavaScript v9 application to a root TypeScript ESM project, using the domain architecture and application/infrastructure capabilities of the REST reference.
 
