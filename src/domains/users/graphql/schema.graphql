@@ -1,0 +1,27 @@
+"""
+Public account fields. Credentials and internal version counters are never exposed.
+"""
+type User {
+  id: ID!
+  email: String!
+  firstName: String
+  lastName: String
+  verified: Boolean!
+  createdAt: String!
+  updatedAt: String!
+  image: String
+}
+input UpdateProfileInput {
+  firstName: String!
+  lastName: String!
+}
+type Profile {
+  firstName: String!
+  lastName: String!
+}
+type Query {
+  me: User
+}
+type Mutation {
+  updateProfile(input: UpdateProfileInput!): Profile
+}

@@ -1,0 +1,4 @@
+extend type Mutation {
+  requestVerification(email: String!): Success
+  confirmVerification(token: String!): AccessToken
+}

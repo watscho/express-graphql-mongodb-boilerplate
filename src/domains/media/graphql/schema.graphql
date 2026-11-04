@@ -1,0 +1,12 @@
+"""
+A multipart File variable; literals and JSON objects are rejected.
+"""
+scalar File
+type UploadedImage {
+  id: ID!
+  image: String!
+}
+extend type Mutation {
+  uploadImage(file: File!): UploadedImage
+  updateAvatar(imageId: ID!): Success
+}

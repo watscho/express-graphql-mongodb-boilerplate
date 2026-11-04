@@ -1,0 +1,8 @@
+type EmailTemplate {
+  key: String!
+  languages: [String!]!
+  defaultLanguage: String!
+}
+extend type Query {
+  emailTemplates: [EmailTemplate!]
+}

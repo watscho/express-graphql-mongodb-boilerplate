@@ -1,0 +1,34 @@
+type AccessToken {
+  accessToken: String!
+}
+type UpdateEmailResult {
+  email: String!
+  accessToken: String
+}
+type Success {
+  messageKey: String!
+}
+input CredentialsInput {
+  email: String!
+  password: String!
+}
+input NewPasswordInput {
+  password: String!
+}
+input UpdatePasswordInput {
+  oldPassword: String!
+  newPassword: String!
+}
+input DeleteProfileInput {
+  password: String!
+}
+extend type Mutation {
+  signIn(input: CredentialsInput!): AccessToken
+  signUp(input: CredentialsInput!): AccessToken
+  signOut: Success
+  resetPassword(email: String!): Success
+  newPassword(token: String!, input: NewPasswordInput!): AccessToken
+  updateEmail(input: CredentialsInput!): UpdateEmailResult
+  updatePassword(input: UpdatePasswordInput!): AccessToken
+  deleteProfile(input: DeleteProfileInput!): Success
+}
